@@ -18,7 +18,6 @@
 @property (nonatomic) UIView         *contentView;
 @property (nonatomic) CAShapeLayer   *pieLayer;
 @property (nonatomic) NSMutableArray *descriptionLabels;
-@property (strong, nonatomic) CAShapeLayer *sectorHighlight;
 
 @property (nonatomic, strong) NSMutableDictionary *selectedItems;
 

@@ -54,6 +54,8 @@
 /** Current inner radius. Override recompute() to change this. **/
 @property (nonatomic) CGFloat innerCircleRadius;
 
+@property (strong, nonatomic) CAShapeLayer *sectorHighlight;
+
 @property (nonatomic, weak) id<PNChartDelegate> delegate;
 
 /** Update chart items. Does not update chart itself. */
