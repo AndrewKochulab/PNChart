@@ -253,18 +253,14 @@ displayCountingLabel:(BOOL)displayCountingLabel
         pathAnimation.fromValue = @(0.0f);
         pathAnimation.toValue = @([_current floatValue] / [_total floatValue]);
         [_circle addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
-        if(_displayCountingLabel)
-        {
-            [_countingLabel countFrom:0 to:percentageValue withDuration:self.duration];
-        }
+        [_countingLabel countFrom:0 to:percentageValue withDuration:self.duration];
+        
         if (self.gradientMask && _strokeColorGradientStart) {
             [self.gradientMask addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
         }
     }
     else {
-        if (_displayCountingLabel) {
-            [_countingLabel countFrom:percentageValue to:percentageValue withDuration:self.duration];
-        }
+        [_countingLabel countFrom:percentageValue to:percentageValue withDuration:self.duration];
     }
 }
 

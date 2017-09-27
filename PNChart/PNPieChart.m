@@ -10,7 +10,7 @@
 //needed for the expected label size
 #import "PNLineChart.h"
 
-@interface PNPieChart()<CAAnimationDelegate>
+@interface PNPieChart()
 
 @property (nonatomic) NSArray *items;
 @property (nonatomic) NSArray *endPercentages;
@@ -53,20 +53,13 @@
 }
 
 - (void)awakeFromNib{
-    [super awakeFromNib];
     [self baseInit];
 }
 
 - (void)baseInit{
     _selectedItems = [NSMutableDictionary dictionary];
-    //在绘制圆形时,应当考虑矩形的宽和高的大小问题,当宽大于高时,绘制饼图时,会超出整个view的范围,因此建议在此处进行判断
-    
-    CGFloat minimal = (CGRectGetWidth(self.bounds) < CGRectGetHeight(self.bounds)) ? CGRectGetWidth(self.bounds) : CGRectGetHeight(self.bounds);
-    
-    _outerCircleRadius  = minimal / 2;
-    _innerCircleRadius  = minimal / 6;
-//    _outerCircleRadius  = CGRectGetWidth(self.bounds) / 2;
-//    _innerCircleRadius  = CGRectGetWidth(self.bounds) / 6;
+    _outerCircleRadius  = CGRectGetWidth(self.bounds) / 2;
+    _innerCircleRadius  = CGRectGetWidth(self.bounds) / 6;
     _descriptionTextColor = [UIColor whiteColor];
     _descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:18.0];
     _descriptionTextShadowColor  = [[UIColor blackColor] colorWithAlphaComponent:0.4];
@@ -106,11 +99,8 @@
 
 /** Override this to change how inner attributes are computed. **/
 - (void)recompute {
-    
-    //同理
-    CGFloat minimal = (CGRectGetWidth(self.bounds) < CGRectGetHeight(self.bounds)) ? CGRectGetWidth(self.bounds) : CGRectGetHeight(self.bounds);
-    self.outerCircleRadius = minimal / 2;
-    self.innerCircleRadius = minimal / 6;
+    self.outerCircleRadius = CGRectGetWidth(self.bounds) / 2;
+    self.innerCircleRadius = CGRectGetWidth(self.bounds) / 6;
 }
 
 #pragma mark -

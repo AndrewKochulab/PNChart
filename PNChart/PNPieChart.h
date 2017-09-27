@@ -11,11 +11,7 @@
 #import "PNGenericChart.h"
 #import "PNChartDelegate.h"
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_10_0
 @interface PNPieChart : PNGenericChart
-#else
-@interface PNPieChart : PNGenericChart <CAAnimationDelegate>
-#endif
 
 - (id)initWithFrame:(CGRect)frame items:(NSArray *)items;
 
@@ -54,9 +50,9 @@
 /** Current inner radius. Override recompute() to change this. **/
 @property (nonatomic) CGFloat innerCircleRadius;
 
-@property (strong, nonatomic) CAShapeLayer *sectorHighlight;
-
 @property (nonatomic, weak) id<PNChartDelegate> delegate;
+
+@property (strong, nonatomic) CAShapeLayer *sectorHighlight;
 
 /** Update chart items. Does not update chart itself. */
 - (void)updateChartData:(NSArray *)data;

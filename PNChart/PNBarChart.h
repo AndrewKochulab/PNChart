@@ -25,6 +25,8 @@ typedef NSString *(^PNYLabelFormatter)(CGFloat yLabelValue);
  */
 - (void)strokeChart;
 
+- (void)strokeChartWithoutAnimation;
+
 @property (nonatomic) NSArray *xLabels;
 @property (nonatomic) NSArray *yLabels;
 @property (nonatomic) NSArray *yValues;
@@ -34,7 +36,9 @@ typedef NSString *(^PNYLabelFormatter)(CGFloat yLabelValue);
 @property (nonatomic) CGFloat xLabelWidth;
 @property (nonatomic) float yValueMax;
 @property (nonatomic) UIColor *strokeColor;
-@property (nonatomic) NSArray *strokeColors;
+@property (nonatomic) NSArray<UIColor *> *strokeColors;
+
+@property (nonatomic, strong) NSNumber *highlightedBarPosition;
 
 
 /** Update Values. */

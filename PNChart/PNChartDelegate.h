@@ -26,6 +26,7 @@
  * Callback method that gets invoked when the user taps on a chart bar.
  */
 - (void)userClickedOnBarAtIndex:(NSInteger)barIndex;
+- (void)didUnselectBarItem;
 
 
 - (void)userClickedOnPieIndexItem:(NSInteger)pieIndex;
